@@ -28,6 +28,12 @@ Run migrations:
 docker/console doctrine:migrations:migrate
 ```
 
+Create an admin user(s):
+
+```
+docker/console dashboard:create-user
+```
+
 
 Or if already built:
 

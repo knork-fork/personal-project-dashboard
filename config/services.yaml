@@ -20,3 +20,7 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    App\Command\DashboardCreateUserCommand:
+        arguments:
+            $entityManager: '@doctrine.orm.entity_manager'
+            $passwordHasher: '@security.password_hasher'
