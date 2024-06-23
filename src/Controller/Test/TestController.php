@@ -18,7 +18,7 @@ final class TestController extends AbstractController
     public function test(): Response
     {
         return $this->render('test.html.twig', [
-            'page_title' => 'Test Page'
+            'page_title' => 'Test Page',
         ]);
     }
 
