@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker exec -it dashboard-db psql -U dashboard_user -d dashboard_db "$@"
