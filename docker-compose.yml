@@ -1,0 +1,42 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: '3.1'
+services:
+    webserver:
+        image: 'nginx:alpine'
+        container_name: dashboard-webserver
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf'
+        ports:
+            - '60009:80'
+
+    php-fpm:
+        build: phpdocker/php-fpm
+        container_name: dashboard-php-fpm
+        working_dir: /application
+        volumes:
+            - '.:/application'
+            - './phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/8.3/fpm/conf.d/99-overrides.ini'
+            - ./logs:/var/log
+            - './.host_ssh_keys:/application/.host_ssh_keys'
+        extra_hosts:
+            - "host.docker.internal:host-gateway"
+
+    dashboard-db:
+        image: 'postgres:15-alpine'
+        container_name: dashboard-db
+        volumes:
+            - 'dashboard-pg-db:/var/lib/postgresql/data'
+        environment:
+            - POSTGRES_USER=dashboard_user
+            - POSTGRES_PASSWORD=dashboard_pass
+            - POSTGRES_DB=dashboard_db
+        ports:
+            - '60010:5432'
+
+volumes:
+    dashboard-pg-db:
+      name: memos-pg-db

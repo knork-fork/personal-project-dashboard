@@ -1,0 +1,4 @@
+test_route:
+    path: /test
+    controller: App\Controller\Test\TestController::test
+    methods: GET

@@ -1,0 +1,6 @@
+- login UI
+- signup CLI
+- add project
+ - status endpoint, ie how to detect if project is on or off
+ - on endpoint, ie how to start the project, e.g. docker-compose up && cloudflare tunnel run
+ - off endpoint, ie how to shut down project, e.g. docker-compose down
