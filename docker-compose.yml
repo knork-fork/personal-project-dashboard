@@ -39,4 +39,4 @@ services:
 
 volumes:
     dashboard-pg-db:
-      name: memos-pg-db
+      name: dashboard-pg-db
