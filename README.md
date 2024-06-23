@@ -20,6 +20,12 @@ Run setup script to setup local env variables and add host ssh keys to container
 scripts/setup.sh
 ```
 
+Run migrations:
+
+```
+docker/console doctrine:migrations:migrate
+```
+
 By default app should be available @ `localhost:60009`
 
 Or if already built:
