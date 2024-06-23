@@ -2,3 +2,8 @@ test_route:
     path: /test
     controller: App\Controller\Test\TestController::test
     methods: GET
+
+test_route_json:
+    path: /test_json
+    controller: App\Controller\Test\TestController::testJson
+    methods: GET
