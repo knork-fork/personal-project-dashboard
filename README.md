@@ -8,6 +8,8 @@ Start container:
 docker-compose up --build -d
 ```
 
+By default app should be available @ `localhost:60009`
+
 Run composer install:
 
 ```
@@ -26,7 +28,6 @@ Run migrations:
 docker/console doctrine:migrations:migrate
 ```
 
-By default app should be available @ `localhost:60009`
 
 Or if already built:
 
