@@ -2,6 +2,8 @@
 
 Personal project dashboard written in PHP and Symfony.
 
+## Installation
+
 Start container:
 
 ```
@@ -34,6 +36,7 @@ Create an admin user(s):
 docker/console dashboard:create-user
 ```
 
+## Extras
 
 Or if already built:
 
@@ -46,8 +49,6 @@ Stop container:
 ```
 docker-compose down
 ```
-
-## Extras
 
 Enter the shell:
 
