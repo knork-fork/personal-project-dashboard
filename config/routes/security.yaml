@@ -1,3 +1,11 @@
 _security_logout:
     resource: security.route_loader.logout
     type: service
+
+dashboard_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+dashboard_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
