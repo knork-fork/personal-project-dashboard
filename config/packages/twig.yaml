@@ -1,5 +1,6 @@
 twig:
     file_name_pattern: '*.twig'
+    auto_reload: true
 
 when@test:
     twig:
