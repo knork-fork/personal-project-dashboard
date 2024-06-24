@@ -22,3 +22,14 @@ phpstan.neon
 ###> container to host communication ###
 /.host_ssh_keys/
 ###< container to host communication ###
+
+# Ignore everything in projects folder but files related to personal project dashboard and examples
+projects/*
+!projects/definitions/
+projects/definitions/*
+!projects/definitions/project_dashboard.json
+!projects/definitions/example.json
+!projects/scripts/
+projects/scripts/*
+!projects/scripts/project_dashboard/
+!projects/scripts/example/
