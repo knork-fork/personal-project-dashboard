@@ -2,35 +2,78 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block stylesheets %}
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f7f7f7; /* Light grey background */
+        font-family: Arial, sans-serif;
+    }
+    form {
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        background: white;
+        width: 300px;
+    }
+    .form-control {
+        width: 95%;
+        padding: 10px;
+        margin-bottom: 15px;
+        margin-right: 50px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .btn-primary {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+    }
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+    .checkbox {
+        margin-bottom: 15px;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
 
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
-            </div>
-        {% endif %}
-
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Username</label>
-        <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
-
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
-
-        <div class="checkbox mb-3">
-            <input type="checkbox" name="_remember_me" id="_remember_me" checked>
-            <label for="_remember_me">Remember me</label>
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
         </div>
+    {% endif %}
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in:</h1>
+    <label for="username">Username</label>
+    <input type="text" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="username" required autofocus>
+    <label for="password">Password</label>
+    <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <div class="checkbox mb-3">
+        <input type="checkbox" name="_remember_me" id="_remember_me" checked>
+        <label for="_remember_me">Remember me</label>
+    </div>
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        Sign in
+    </button>
+</form>
 {% endblock %}
